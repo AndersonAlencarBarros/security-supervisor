@@ -14,19 +14,17 @@ const port = new SerialPort("COM3", {
 
 const parser = port.pipe(new Readline({ delimiter: "\n" }));
 
-port.open(err => {
-    if (err) {
-        return console.log("Error Opening port: ", err.message);
-    }
-    parser.on("data", data => {
-        console.log(data);
-        io.emit("Serial-data:", {
-            value: data.toString()
-        });
-    });
-});
-
-
+// port.open(err => {
+//     if (err) {
+//         return console.log("Error Opening port: ", err.message);
+//     }
+//     parser.on("data", data => {
+//         console.log(data);
+//         io.emit("Serial-data:", {
+//             value: data.toString()
+//         });
+//     });
+// });
 
 app.use(express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "public"));
@@ -46,4 +44,3 @@ const server = app.listen(3000, () => {
 });
 
 const io = require("socket.io").listen(server);
-

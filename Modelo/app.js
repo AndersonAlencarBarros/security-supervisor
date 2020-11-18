@@ -66,7 +66,7 @@ setInterval(() => {
 }, 1000);
 
 
-// Acredio que uma Função Para a leitura serial (falta testar)
+// Função Para a leitura serial
 // socket.on("Serial-data:", dataSerial => {
 //     timer = new Date().getTime();
 //     myChart.data.labels.push(timer); 
@@ -75,12 +75,8 @@ setInterval(() => {
 //     myChart.update();
 // }); 
 
-
-
-
-
-
 // Códigos que Foram Removidos
+
 // console.log(myChart.data.datasets.data);
 
 // if (dataSerial.value.indexOf(" %") != -1) {
