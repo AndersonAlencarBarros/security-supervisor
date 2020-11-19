@@ -1,4 +1,4 @@
-// const socket = io(); 
+// const socket = io();
 
 function criarGrafico(nome, posicao, unidade ) {
     let ctx = document.getElementById(posicao).getContext('2d');
@@ -18,7 +18,7 @@ function criarGrafico(nome, posicao, unidade ) {
                 borderWidth: 1
             }]
         },
-        options: { 
+        options: {
             scales: {
                 xAxes: [{
                     distribution: 'linear',
@@ -27,15 +27,15 @@ function criarGrafico(nome, posicao, unidade ) {
                         displayFormats: {
                             quarter: 'h:mm:ss'
                         }
-                    }, 
-                    ticks: {  
+                    },
+                    ticks: {
                         min: 10,
                         max: 10,
                         minRotation: 0,
                         maxRotation: 0
                     }
                 }],
-                yAxes: [{ 
+                yAxes: [{
                     scaleLabel: {
                         display: true,
                         labelString: unidade,
@@ -49,31 +49,31 @@ function criarGrafico(nome, posicao, unidade ) {
     return myChart;
 }
 
-var myChart = criarGrafico("Som", "meuGrafico", "dB"); 
+var myChart = criarGrafico("Som", "meuGrafico", "dB");
 var myChart1 = criarGrafico("Batimentos Cardíacos", "meuGrafico1", "BPM");
 
 // Função Temporária para Renderizar o Gráfico
-setInterval(() => { 
-    myChart.data.labels.push(new Date()); 
-    myChart.data.datasets[0].data.push(Math.random() * (1000 - 10) + 10);   
-    myChart.update(); 
+setInterval(() => {
+    myChart.data.labels.push(new Date());
+    myChart.data.datasets[0].data.push(Math.random() * (1000 - 10) + 10);
+    myChart.update();
 }, 1000);
 
-setInterval(() => { 
-    myChart1.data.labels.push(new Date()); 
-    myChart1.data.datasets[0].data.push(Math.random() * (150 - 0) + 0);   
-    myChart1.update(); 
+setInterval(() => {
+    myChart1.data.labels.push(new Date());
+    myChart1.data.datasets[0].data.push(Math.random() * (150 - 0) + 0);
+    myChart1.update();
 }, 1000);
 
 
 // Função Para a leitura serial
 // socket.on("Serial-data:", dataSerial => {
 //     timer = new Date().getTime();
-//     myChart.data.labels.push(timer); 
-//     myChart.data.datasets[0].data.push(dataSerial);  
+//     myChart.data.labels.push(timer);
+//     myChart.data.datasets[0].data.push(dataSerial);
 
 //     myChart.update();
-// }); 
+// });
 
 // Códigos que Foram Removidos
 
